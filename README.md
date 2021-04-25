@@ -40,3 +40,7 @@ Use this to guide you on the naming
 Open main.ipynb and fill in the above attained API credentials
 Run the connect to twitter notebook.
 If the above step runs successfully, you are set set to try out the different import functions from the importer class
+
+### To contribute
+
+run **pip install -r requirements.txt**
