@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 tweepy = "*"
 pandas = "*"
+import-ipynb = "*"
 
 [dev-packages]
 
