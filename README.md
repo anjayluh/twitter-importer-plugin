@@ -4,16 +4,13 @@ This is a a plugin to import user data from their twitter account using their ha
 
 ## How to run project
 
-Clone this repository
-Install jupyter notebooks
-Download [Anaconda](https://www.continuum.io/downloads). This project is using anaconda 3.5.
-Install the version of Anaconda which you downloaded, following the instructions on the download page.
-
-To run the notebook. cd into the project directory and run **jupyter notebook**
+- First, you need to create an account with twitter developer [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)
+- Clone this repository
+- Download [Anaconda](https://www.continuum.io/downloads). This project is using anaconda 3.5.
+- Install the version of Anaconda which you downloaded, following the instructions on the download page.
+  -To run the notebook. cd into the project directory and run **jupyter notebook**
 
 ### To run the importer plugin
-
-First, you need to create an account with twitter developer [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)
 
 Once you have a developer account, get your api credentials listed below
 
