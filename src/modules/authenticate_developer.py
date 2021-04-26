@@ -5,6 +5,28 @@ import tweepy as tweepy
 
 
 class Authenticate:
+    """
+    A class to represent Authenticate.
+
+    ...
+
+    Attributes
+    ----------
+    access_token: str
+        A valid access_token for a given twitter developer
+    access_secret: str
+        A valid access_secret for a given twitter developer
+    consumer_key: str
+        A valid consumer_key for a given twitter developer
+    consumer_key: str
+        A valid consumer_key for a given twitter developer
+
+    Methods
+    -------
+    connect_to_twitter_OAuth():
+        Returns an api class with methods to access twitter endpoints.
+    """
+
     def __init__(self, access_token, access_secret, consumer_key, consumer_secret):
         self.access_token = access_token
         self.access_secret = access_secret
@@ -12,6 +34,14 @@ class Authenticate:
         self.consumer_secret = consumer_secret
 
     def connect_to_twitter_OAuth(self):
+        '''
+        Returns an api class with methods to access twitter endpoints.
+
+                Parameters:
+
+                Returns:
+                        api (class): A class with methods to access twitter endpoints.
+        '''
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_secret)
         api = tweepy.API(auth)

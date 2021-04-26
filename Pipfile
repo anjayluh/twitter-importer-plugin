@@ -7,6 +7,7 @@ name = "pypi"
 tweepy = "*"
 pandas = "*"
 import-ipynb = "*"
+pytest = "*"
 
 [dev-packages]
 

@@ -1,5 +1,7 @@
-# modules
+# __pycache__
+.pytest_cache
 src/modules/__pycache__/
+src/unit_tests/__pycache__/
 # credentials for twitter developer account
 credentials.py
 # Jupyter Notebook
