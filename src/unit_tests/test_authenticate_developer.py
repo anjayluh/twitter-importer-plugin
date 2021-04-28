@@ -3,31 +3,34 @@
 import requests
 # External imports
 from nose.tools import assert_true, assert_raises
-# External imports
-import os
-import sys
+# Local imports
+import os,sys,inspect
 sys.path.append(os.path.abspath('../modules'))
-import authenticate_developer
-import settings
+sys.path.append(os.path.abspath('../'))
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir)
+
+import config
+from modules.twitter_importer import TwitterImporter
+from modules.authenticate_developer import Authenticate
 
 
 def test_connection():
     # Send a request to the API server and store the response.
     response = requests.get('https://twitter.com')
-
     # Confirm that the request-response cycle completed successfully.
-    assert_true(response.ok)
+    assert(response.ok)
 
 
 def test_connect_to_twitter_OAuth():
-    authenticate = authenticate_developer.Authenticate(
-        ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+    authenticate = Authenticate(config.ACCESS_TOKEN, config.ACCESS_SECRET, config.CONSUMER_KEY, config.CONSUMER_SECRET)
     # if authentication is successful, I epxect an api object.
     api = authenticate.connect_to_twitter_OAuth()
-    assert_true(api.verify_credentials() == True)
+    assert(api.verify_credentials() == True)
 
 def test_connect_to_twitter_OAuth_invalid_token():
-    authenticate = authenticate_developer.Authenticate(
-        ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+    authenticate = Authenticate(config.ACCESS_TOKEN, config.ACCESS_SECRET, config.CONSUMER_KEY, config.CONSUMER_SECRET)
+    api = authenticate.connect_to_twitter_OAuth()
     # if authentication is successful, I epxect an api object.
-    assert_true(api.verify_credentials() == False)
+    assert(api.verify_credentials() == False)

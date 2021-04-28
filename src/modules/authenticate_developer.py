@@ -52,8 +52,8 @@ class Authenticate:
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_secret)
         api = tweepy.API(auth)
-        if api.verify_credentials() == False:
-            raise Exception("The user credentials are invalid.")
+        # if api.verify_credentials() == False:
+        #     raise Exception("The user credentials are invalid.")
         return api
 
 
