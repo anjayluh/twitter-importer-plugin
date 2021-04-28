@@ -34,7 +34,8 @@ Use this to guide you on the naming
     Access token === Token === resulting oauth_token
     Access token secret === Token Secret === resulting oauth_token_secret
 
-Open main.ipynb and fill in the above attained API credentials
+Open src/settings.py and fill in the above attained API credentials
+Open main.ipynb and try out the different notebooks
 Run the connect to twitter notebook.
 If the above step runs successfully, you are set set to try out the different import functions from the importer class
 
