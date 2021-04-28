@@ -8,6 +8,8 @@ tweepy = "*"
 pandas = "*"
 import-ipynb = "*"
 pytest = "*"
+nose = "*"
+requests = "*"
 
 [dev-packages]
 

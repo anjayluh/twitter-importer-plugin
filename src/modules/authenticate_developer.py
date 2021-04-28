@@ -1,4 +1,5 @@
 import tweepy as tweepy
+import urllib.request
 # Authentication!
 # Set up your twitter developer account and get your app authentiction details here
 # Class to set up access to api
@@ -42,9 +43,20 @@ class Authenticate:
                 Returns:
                         api (class): A class with methods to access twitter endpoints.
         '''
+        # Test if user is able to access twitter.com
+        try:
+            urllib.request.urlopen('https://twitter.com')
+        except ConnectionError as e:
+            raise Exception(e)
+
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_secret)
         api = tweepy.API(auth)
         if api.verify_credentials() == False:
             raise Exception("The user credentials are invalid.")
         return api
+
+
+if __name__ == '__main__' and __package__ is None:
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
