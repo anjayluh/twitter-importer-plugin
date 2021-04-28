@@ -3,3 +3,4 @@ tweepy
 pandas
 import-ipynb
 pytest
+nose

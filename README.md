@@ -8,6 +8,9 @@ This is a a plugin to import user data from their twitter account using their ha
 - Clone this repository
 - Download [Anaconda](https://www.continuum.io/downloads). This project is using anaconda 3.5.
 - Install the version of Anaconda which you downloaded, following the instructions on the download page.
+- Run **pip install jupyter**
+- Install packages listed in the requrements.txt file using pip e.g. **pip install tweepy**
+-Run **conda install -c conda-forge tweepy**
   -To run the notebook. cd into the project directory and run **jupyter notebook**
 
 ### To run the importer plugin

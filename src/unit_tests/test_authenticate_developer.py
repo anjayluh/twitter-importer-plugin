@@ -1,10 +1,14 @@
 
-import authenticate_developer
+# Standard imports
 import requests
-from nose.tools import assert_true
+# External imports
+from nose.tools import assert_true, assert_raises
+# External imports
 import os
 import sys
 sys.path.append(os.path.abspath('../modules'))
+import authenticate_developer
+import settings
 
 
 def test_connection():
@@ -19,12 +23,11 @@ def test_connect_to_twitter_OAuth():
     authenticate = authenticate_developer.Authenticate(
         ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     # if authentication is successful, I epxect an api object.
-    assert_is_not_none(authenticate)
+    api = authenticate.connect_to_twitter_OAuth()
+    assert_true(api.verify_credentials() == True)
 
-
-def test_connect_to_twitter_OAuth():
+def test_connect_to_twitter_OAuth_invalid_token():
     authenticate = authenticate_developer.Authenticate(
         ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
-    api = authenticate.connect_to_twitter_OAuth()
     # if authentication is successful, I epxect an api object.
-    assert_is_not_none(api)
+    assert_true(api.verify_credentials() == False)
