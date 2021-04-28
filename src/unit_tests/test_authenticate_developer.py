@@ -1,12 +1,11 @@
 
 # Standard imports
 import requests
-# External imports
-from nose.tools import assert_true, assert_raises
+# Third-party imports...
+import pytest
 # Local imports
 import os,sys,inspect
 sys.path.append(os.path.abspath('../modules'))
-sys.path.append(os.path.abspath('../'))
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir)
@@ -25,12 +24,15 @@ def test_connection():
 
 def test_connect_to_twitter_OAuth():
     authenticate = Authenticate(config.ACCESS_TOKEN, config.ACCESS_SECRET, config.CONSUMER_KEY, config.CONSUMER_SECRET)
-    # if authentication is successful, I epxect an api object.
     api = authenticate.connect_to_twitter_OAuth()
-    assert(api.verify_credentials() == True)
+    assert(api.verify_credentials()) is not None
 
 def test_connect_to_twitter_OAuth_invalid_token():
-    authenticate = Authenticate(config.ACCESS_TOKEN, config.ACCESS_SECRET, config.CONSUMER_KEY, config.CONSUMER_SECRET)
+    ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN'
+    ACCESS_SECRET = 'YOUR_ACCESS_SECRET'
+    CONSUMER_KEY = 'YOUR_CONSUMER_KEY'
+    CONSUMER_SECRET = 'YOUR_CONSUMER_SECRET'
+    authenticate = Authenticate(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     api = authenticate.connect_to_twitter_OAuth()
     # if authentication is successful, I epxect an api object.
-    assert(api.verify_credentials() == False)
+    assert(api.verify_credentials()) is not None

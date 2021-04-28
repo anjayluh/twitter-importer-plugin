@@ -7,7 +7,6 @@ import pytest
 # Local imports
 import os,sys,inspect
 sys.path.append(os.path.abspath('../modules'))
-sys.path.append(os.path.abspath('../'))
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0,parentdir)
@@ -62,6 +61,3 @@ def test_getting_user_tweets_with_non_existing_handle():
     user_tweets = twitter_importer.import_user_tweets()
     assert(user_tweets) is not None
 
-
-if __name__ == "__main__":
-	unittest.main()
