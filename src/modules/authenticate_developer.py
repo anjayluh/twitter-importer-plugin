@@ -55,8 +55,3 @@ class Authenticate:
         # if api.verify_credentials() == False:
         #     raise Exception("The user credentials are invalid.")
         return api
-
-
-if __name__ == '__main__' and __package__ is None:
-    from os import sys, path
-    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
