@@ -59,7 +59,7 @@ class TwitterImporter:
             self.api.friends, self.user_handle).items(max_limit)
         return followings
 
-    def import_user_tweets(self, limit=None):
+    def import_user_tweets(self, user_handle, limit=None):
         '''
         Returns the user_tweets of a given user handle.
 
@@ -71,5 +71,5 @@ class TwitterImporter:
         '''
         max_limit = limit if limit and limit > 0 and limit <= 200 else 200
         user_tweets = tweepy.Cursor(
-            self.api.user_timeline, tweet_mode='extended').items(max_limit)
+            self.api.user_timeline, user_handle, tweet_mode='extended').items(max_limit)
         return user_tweets
